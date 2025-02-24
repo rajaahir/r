@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recharge Plans</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-6">
+    
+    <!-- 🔹 Page Title -->
+    <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">RECHARGE PLAN</h1>
+
+    <!-- 🔹 Recharge Plans List -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- ₹199 Plan -->
+      <div class="bg-white shadow-md p-4 rounded-lg">
+        <h2 class="text-xl font-semibold text-gray-800">₹199 Plan</h2>
+        <p class="text-gray-600">✔ 28 Days Validity</p>
+        <p class="text-gray-600">✔ 1GB/Day Data</p>
+        <p class="text-gray-600">✔ Unlimited Calls & 100 SMS/Day</p>
+        <button onclick="redirectToPayment(199)" class="mt-3 w-full bg-blue-700 text-white py-2 rounded-lg">Recharge Now</button>
+      </div>
+
+      <!-- ₹249 Plan -->
+      <div class="bg-white shadow-md p-4 rounded-lg">
+        <h2 class="text-xl font-semibold text-gray-800">₹249 Plan</h2>
+        <p class="text-gray-600">✔ 28 Days Validity</p>
+        <p class="text-gray-600">✔ 1.5GB/Day Data</p>
+        <p class="text-gray-600">✔ Unlimited Calls & 100 SMS/Day</p>
+        <button onclick="redirectToPayment(249)" class="mt-3 w-full bg-blue-700 text-white py-2 rounded-lg">Recharge Now</button>
+      </div>
+
+      <!-- ₹599 Plan -->
+      <div class="bg-white shadow-md p-4 rounded-lg">
+        <h2 class="text-xl font-semibold text-gray-800">₹599 Plan</h2>
+        <p class="text-gray-600">✔ 84 Days Validity</p>
+        <p class="text-gray-600">✔ 1.5GB/Day Data</p>
+        <p class="text-gray-600">✔ Unlimited Calls & 100 SMS/Day</p>
+        <button onclick="redirectToPayment(599)" class="mt-3 w-full bg-blue-700 text-white py-2 rounded-lg">Recharge Now</button>
+      </div>
+
+      <!-- ₹649 Plan -->
+      <div class="bg-white shadow-md p-4 rounded-lg">
+        <h2 class="text-xl font-semibold text-gray-800">₹649 Plan</h2>
+        <p class="text-gray-600">✔ 84 Days Validity</p>
+        <p class="text-gray-600">✔ 2GB/Day Data</p>
+        <p class="text-gray-600">✔ Unlimited Calls & 100 SMS/Day</p>
+        <button onclick="redirectToPayment(649)" class="mt-3 w-full bg-blue-700 text-white py-2 rounded-lg">Recharge Now</button>
+      </div>
+
+      <!-- ₹2499 Annual Plan -->
+      <div class="bg-white shadow-md p-4 rounded-lg">
+        <h2 class="text-xl font-semibold text-gray-800">₹2499 Annual Plan</h2>
+        <p class="text-gray-600">✔ 365 Days Validity</p>
+        <p class="text-gray-600">✔ 2.5GB/Day Data</p>
+        <p class="text-gray-600">✔ Unlimited Calls & 100 SMS/Day</p>
+        <button onclick="redirectToPayment(2499)" class="mt-3 w-full bg-blue-700 text-white py-2 rounded-lg">Recharge Now</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Redirect to the payment page with the plan details
+    function redirectToPayment(amount) {
+      const upiId = 'lohani@fam'; // Your UPI ID
+      const name = 'MOBILE RECHARGE'; // Payment description
+
+      // Ensure amount is passed as a whole number (no decimals)
+      const formattedAmount = amount.toFixed(2); // Ensure it's formatted to two decimal places
+
+      // Construct the UPI payment URL
+      const paymentUrl = `upi://pay?pa=${upiId}&pn=${name}&mc=0000&tid=123456789&tr=${amount}&tn=${name}%20Recharge&am=${formattedAmount}&cu=INR`;
+
+      // Open the UPI payment app with pre-filled details
+      window.location.href = paymentUrl;
+    }
+  </script>
+</body>
+</html>
